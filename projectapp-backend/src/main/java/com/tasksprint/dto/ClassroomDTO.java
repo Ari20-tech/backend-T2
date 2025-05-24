@@ -1,8 +1,6 @@
 package com.tasksprint.dto;
 
-import com.tasksprint.model.Career;
-import com.tasksprint.model.Course;
-import com.tasksprint.model.Teacher;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,11 +10,29 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ClassroomDTO {
     private Integer idClassroom;
+
+    @NotNull(message = "El NRC es obligatorio")
+    @Positive(message = "El NRC debe ser un número entero positivo")
     private Integer nrc;
-    private Course course;
-    private Teacher teacher;
-    private Career career;
+
+    @NotNull(message = "El ID del Curso es obligatorio")
+    private Integer idCourse;
+
+    @NotNull(message = "El ID del Docente es obligatorio")
+    private Integer idTeacher;
+
+    @NotNull(message = "El ID de la Carrera es obligatorio")
+    private Integer idCareer;
+
+    @NotBlank(message = "El semestre es obligatorio")
+    @Size(max = 10, message = "El semestre debe tener como máximo 10 caracteres")
     private String semester;
+
+    @NotNull(message = "El nivel es obligatorio")
+    @Min(value = 1, message = "El nivel debe ser al menos 1")
+    @Max(value = 10, message = "El nivel debe ser como máximo 10")
     private Integer level;
+
+    @NotNull(message = "El estado es obligatorio")
     private Boolean status;
 }

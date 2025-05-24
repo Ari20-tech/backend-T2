@@ -1,8 +1,6 @@
 package com.tasksprint.controller;
 
-import com.tasksprint.dto.CourseDTO;
 import com.tasksprint.dto.TeacherDTO;
-import com.tasksprint.model.Course;
 import com.tasksprint.model.Teacher;
 import com.tasksprint.service.ITeacherService;
 import jakarta.validation.Valid;
